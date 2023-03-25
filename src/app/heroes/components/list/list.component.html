@@ -1,0 +1,19 @@
+<hr>
+<h2>Heroes list</h2>
+
+<div>
+  <h3 *ngIf="deletedHero; else selectHero">Hero deleted <span class="text text-danger">{{deletedHero}}</span></h3>
+</div>
+
+<ng-template #selectHero>
+  <h3 *ngIf="!deletedHero">Select Hero name</h3>
+</ng-template>
+
+<ul>
+  <li *ngFor="let item of heroesNames">
+    <p>
+      {{item}}
+      <button (click)="deleteHero(item)" class="btn btn-danger">Delete</button>
+    </p>
+  </li>
+</ul>
