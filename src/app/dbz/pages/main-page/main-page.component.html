@@ -2,9 +2,9 @@
 <br>
 <div class="row">
   <div class="col">
-    <app-dbz-list [characters]="characters" />
+    <app-dbz-list [characters]="characters" (onDeleteCharacter)="onDeleteCharacter($event)" />
   </div>
   <div class="col">
-    <app-dbz-add-character />
+    <app-dbz-add-character (onNewCharacter)="onNewCharacter($event)" />
   </div>
 </div>

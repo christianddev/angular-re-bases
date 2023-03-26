@@ -1,21 +1,23 @@
 <h4>Characters:</h4>
 <ul>
   <li *ngFor="let character of characters;
-    let i = index;
+    let index = index;
     let isFirsts = first;
     let isLast = last;
     let isEven = even;
-    let isOdd = odd;
-    ">
-    <span>{{i + 1}}</span>
-    {{character?.name}}:
-    <span [ngClass]="{
+    let isOdd = odd;" class="d-flex justify-content-between m-2" [ngClass]="{
       'text text-warning': isEven,
       'text text-primary': isOdd,
       'text text-success': isFirsts,
       'text text-danger': isLast
     }">
-      {{character?.power}}
-    </span>
+    <div>
+      <span>{{index + 1}}</span>
+      {{character?.name}}:
+      <span>
+        {{character?.power}}
+      </span>
+    </div>
+    <button [disabled]="!character?.id" class=" btn btn-danger" (click)="deleteCharacter(character?.id)">X</button>
   </li>
 </ul>
